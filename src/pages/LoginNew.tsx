@@ -106,6 +106,8 @@ const LoginNew = () => {
 
             setAuthentication(authData);
 
+            //test
+            localStorage.setItem(("jwt"), token);
 
             navigate("/home");
         } catch (error) {

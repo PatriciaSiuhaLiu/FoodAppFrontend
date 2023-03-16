@@ -99,6 +99,9 @@ const AuthContextProvider = ({ children }: { children: ReactNode }) => {
             token: "",
         })
         // setIsLoggedIn(false);
+
+        //test
+        localStorage.removeItem("jwt");
     };
 
     return (

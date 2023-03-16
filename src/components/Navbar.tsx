@@ -54,12 +54,24 @@ const Navbar: FC = (): ReactElement => {
         // const url = process.env.ENV === "DEV" ? "http://localhost:8000" : "https://online-food-order-nf2n.onrender.com";
         const url = "https://online-food-order-nf2n.onrender.com";
         const response = await axios.get(`${url}/api/v1/logout`, {
-            withCredentials: true
+            withCredentials: true,
+            headers: {
+                "Authorization": "Baerer " + localStorage.getItem('jwt')
+            }
         })
 
         // set isLoggedin false here
         auth.logout();
         navigate('/login')
+
+
+        //         let result = await fetch("http://localhost:5000/logout",
+        // {
+        // method: "GET",
+        // headers: {
+        // "Authorization":"Baerer " + localStorage.getItem('user-info')
+        // }
+        // }).then(localStorage.removeItem("user-info"))
 
 
     }
