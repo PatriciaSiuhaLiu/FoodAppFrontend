@@ -22,7 +22,11 @@ const PersistLogin = () => {
             // const response = await axios.get(`${url}/api/v1/logout`, {
             const response = await axios.get(`${url}/api/v1/loggedInUser`,
                 {
-                    withCredentials: true
+                    withCredentials: true,
+                    //test
+                    headers: {
+                        "Authorization": "Baerer " + localStorage.getItem('jwt')
+                    }
                 }
 
             );
