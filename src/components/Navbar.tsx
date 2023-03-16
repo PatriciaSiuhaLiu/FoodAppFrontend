@@ -56,7 +56,7 @@ const Navbar: FC = (): ReactElement => {
         const response = await axios.get(`${url}/api/v1/logout`, {
             withCredentials: true,
             headers: {
-                "Authorization": "Baerer " + localStorage.getItem('jwt')
+                "Authorization": "Bearer " + localStorage.getItem('jwt')
             }
         })
 
@@ -69,7 +69,7 @@ const Navbar: FC = (): ReactElement => {
         // {
         // method: "GET",
         // headers: {
-        // "Authorization":"Baerer " + localStorage.getItem('user-info')
+        // "Authorization":"Bearer " + localStorage.getItem('user-info')
         // }
         // }).then(localStorage.removeItem("user-info"))
 

@@ -25,7 +25,7 @@ const PersistLogin = () => {
                     withCredentials: true,
                     //test
                     headers: {
-                        "Authorization": "Baerer " + localStorage.getItem('jwt')
+                        "Authorization": "Bearer " + localStorage.getItem('jwt')
                     }
                 }
 
