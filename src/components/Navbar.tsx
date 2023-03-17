@@ -49,10 +49,7 @@ const Navbar: FC = (): ReactElement => {
     const onLogout = async (event: React.FormEvent) => {
         event.preventDefault();
 
-
-
-        // const url = process.env.ENV === "DEV" ? "http://localhost:8000" : "https://online-food-order-nf2n.onrender.com";
-        const url = "https://online-food-order-nf2n.onrender.com";
+        const url = import.meta.env.VITE_ENV === "DEV" ? "http://localhost:8000" : "https://online-food-order-nf2n.onrender.com";
         const response = await axios.get(`${url}/api/v1/logout`, {
             withCredentials: true,
             headers: {
@@ -63,15 +60,6 @@ const Navbar: FC = (): ReactElement => {
         // set isLoggedin false here
         auth.logout();
         navigate('/login')
-
-
-        //         let result = await fetch("http://localhost:5000/logout",
-        // {
-        // method: "GET",
-        // headers: {
-        // "Authorization":"Bearer " + localStorage.getItem('user-info')
-        // }
-        // }).then(localStorage.removeItem("user-info"))
 
 
     }

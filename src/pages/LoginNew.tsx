@@ -5,7 +5,7 @@ import axios from "axios";
 import FormInputNew from "../components/FormInputNew";
 import { Alert } from "@mui/material";
 import styled from "styled-components";
-// import * as process from "process"; 
+
 
 const StyledFormButton = styled.button`
   width: 120px;
@@ -78,20 +78,17 @@ const LoginNew = () => {
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         try {
-            // console.log("process.env.ENV---->", process);
-            // console.log("process.env.ENV---->", process?.env);
-            // console.log("process.env.ENV---->", process?.env?.ENV);
-            // const url = process.env.ENV === "PROD" ? "https://online-food-order-nf2n.onrender.com" : "http://localhost:8000";
-            // const url = process.env.ENV === "DEV" ? "http://localhost:8000" : "https://online-food-order-nf2n.onrender.com";
-            const url = "https://online-food-order-nf2n.onrender.com";
-            // const url = "https://online-food-order-nf2n.onrender.com";
-            // const response = await axios.get(`${url}/api/v1/logout`, {
+
+            const url = import.meta.env.VITE_ENV === "DEV" ? "http://localhost:8000" : "https://online-food-order-nf2n.onrender.com";
             const response = await axios.post(
                 `${url}/api/v1/login`,
                 { email: values.email, password: values.password },
                 {
                     withCredentials: true,
-                }
+                    headers: {
+                        "Authorization": "Bearer " + localStorage.getItem('jwt')
+                    }
+                },
             );
 
             const { user, token } = response.data;
@@ -106,9 +103,7 @@ const LoginNew = () => {
 
             setAuthentication(authData);
 
-            //test
             localStorage.setItem(("jwt"), token);
-
             navigate("/home");
         } catch (error) {
 

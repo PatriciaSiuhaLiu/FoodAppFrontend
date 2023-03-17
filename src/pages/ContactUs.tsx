@@ -34,10 +34,8 @@ const ContactUs: React.FC = () => {
     const handleSubmit = async () => {
         try {
 
-            // const url = process.env.ENV === "PROD" ? "https://online-food-order-nf2n.onrender.com" : "http://localhost:8000";
-            // const url = process.env.ENV === "DEV" ? "http://localhost:8000" : "https://online-food-order-nf2n.onrender.com";
-            const url = "https://online-food-order-nf2n.onrender.com";
-            // const response = await axios.get(`${url}/api/v1/logout`, {
+            const url = import.meta.env.VITE_ENV === "DEV" ? "http://localhost:8000" : "https://online-food-order-nf2n.onrender.com";
+
             const response = await axios.post(`${url}/api/v1/contact`, {
                 name: formData.name,
                 email: formData.email,
