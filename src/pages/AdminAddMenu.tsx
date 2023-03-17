@@ -31,7 +31,7 @@ const AddMenuItem: React.FC = () => {
         const fetchRestaurants = async () => {
             try {
 
-                const url = process.env.VITE_ENV === "DEV" ? "http://localhost:8000" : "https://online-food-order-nf2n.onrender.com";
+                const url = import.meta.env.VITE_ENV === "DEV" ? "http://localhost:8000" : "https://online-food-order-nf2n.onrender.com";
 
                 const response = await axios.get(`${url}/api/v1/restaurants`,
                     {
