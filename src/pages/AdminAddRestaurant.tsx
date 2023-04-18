@@ -183,7 +183,7 @@ const AdminAddRestaurant = () => {
                 </Button>
         </Grid>
         {/* Dialog box to appear on successful form submission. */}
-        <Dialog open={open} onClose={handleClose}>
+        {/* <Dialog open={open} onClose={handleClose}>
         <DialogTitle>Contact form submitted!</DialogTitle>
         <DialogContent>
         <p> Hey {formData.name}! Your message has been sent successfully!!</p>
@@ -191,7 +191,7 @@ const AdminAddRestaurant = () => {
         <DialogActions>
         <Button onClick={handleClose} variant="outlined">Close</Button>
         </DialogActions>
-        </Dialog>
+        </Dialog> */}
     
         </div>
     );
