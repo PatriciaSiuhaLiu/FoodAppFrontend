@@ -219,6 +219,25 @@ const Navbar: FC = (): ReactElement => {
                                 </>
                             )}
 
+                            {auth.auth.email && auth.auth.roles.find(role => role == 2000) && (
+                                <>
+
+                                    <Link
+                                        //   key={page.key}
+                                        component={NavLink}
+                                        to={"/addRestaurant"}
+                                        color="white"
+                                        aria-label={"addRestaurant"}
+                                        underline="none"
+                                        variant="button"
+                                        sx={{ fontSize: "large", marginLeft: "2rem" }}
+                                    >
+                                        {"Admin Add Restaurant"}
+                                    </Link>
+
+                                </>
+                            )}
+
                             {routes.map((page: any) => (
                                 <Link
                                     key={page.key}

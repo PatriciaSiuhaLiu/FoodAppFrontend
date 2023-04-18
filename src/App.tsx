@@ -23,6 +23,7 @@ import Cart from './pages/Cart';
 import PaymentSuccess from './pages/PaymentSuccess';
 import RestaurantFinder from './pages/RestaurantFinder';
 import PageNotFound from './pages/PageNotFound';
+import AdminAddRestaurant from './pages/AdminAddRestaurant';
 
 
 function App() {
@@ -55,7 +56,12 @@ function App() {
                   </Route>
 
                   <Route element={<ProtectedRoute allowedRoles={[2000]} />}>
+                    
                     <Route path="/adminAddMenu" element={<AddMenuItem />} />
+                  </Route>
+
+                  <Route element={<ProtectedRoute allowedRoles={[2000]} />}>
+                    <Route path="/addRestaurant" element={<AdminAddRestaurant/>} />
                   </Route>
                   <Route element={<ProtectedRoute allowedRoles={[1000]} />}>
 
